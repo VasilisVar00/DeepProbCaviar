@@ -1,5 +1,13 @@
+# we need information for the coordinates and the orientation of entities
+# at first we take this terms with absolute confidence i.e with prob = 1
+# i assume that (in the future) this coordinates will be given by a pretrained 
+# computer vision neural network
+
 import xml.etree.ElementTree as ET
 # 'wk1gt.xml'
+
+# function that finds coordinates and orientation inside the .xml file
+# it returns a list of dictionaries, one for each frame
 
 def transform_xml(filename):
     tree = ET.parse(filename)
@@ -26,6 +34,9 @@ def transform_xml(filename):
 
 # print(transform_xml('wk1gt.xml'))
 video = '01-Walk1'
+
+# take the list of dictionaries returned from the above function
+# to format the holdsAt predicates
 
 def get_coordinates(filename):
     dicts = transform_xml(filename)
