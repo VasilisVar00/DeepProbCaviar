@@ -1,3 +1,7 @@
+# code to transform all video annotation
+# video_names.txt contains the names of all videos
+# we use the transform_files function
+
 from get_coordinates import get_coordinates
 from util import transform_files
 
