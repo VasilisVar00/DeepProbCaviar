@@ -7,6 +7,10 @@ def get_total_frames(dir_path):
     return len([entry for entry in os.listdir(dir_path) 
     if os.path.isfile(os.path.join(dir_path, entry))])
 
+# function to transform the ground truth annotation 
+# moving(id4,id5): [2520,5680] becomes a series of 
+# holdsAt(Video,moving(id4,id5) = {true,false},T)
+# one for each frame
 
 def transform_files(input_file,output_file):
     frames = get_total_frames(input_file.split("-")[1].split("/")[0]) # take only Walk1

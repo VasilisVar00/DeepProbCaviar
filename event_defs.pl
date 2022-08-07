@@ -1,5 +1,5 @@
 
-% neural predicate I is for the entity's id, V for the video T for the frame
+% neural predicate I is for the entity's id, V for the video, T for the frame
 nn(activity_detection_net, [I, V, T], H, [active,inactive,appear,disappear,walking,running,abrupt]) :: happensAt(V, H(I),T).
 
 holdsAt(V, close(ID1, ID2, Threshold) = true, T):-
