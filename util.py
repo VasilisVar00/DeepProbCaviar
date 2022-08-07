@@ -10,6 +10,7 @@ def get_total_frames(dir_path):
 
 def transform_files(input_file,output_file):
     frames = get_total_frames(input_file.split("-")[1].split("/")[0]) # take only Walk1
+    video = input_file.split("/")[2]
     Tmax = frames*40
     with open(input_file, "r") as fin, open(output_file,'w') as fout:
         lines = fin.readlines()
@@ -35,13 +36,12 @@ def transform_files(input_file,output_file):
                         up = new_l[j+2]
                 if(i >= down and i <= up):
                     flag = "true"
-                fout.write("holdsAt({0} = {1},{2})\n".format(l[0],flag,i))
+                fout.write("holdsAt('{0}', {1} = {2},{3})\n".format(video,l[0],flag,i))
     
     fin.close()
     fout.close()
     
 
-transform_files('caviar/original/01-Walk1/ground_truth/01-Walk1_annotation.txt','caviar/original/01-Walk1/ground_truth/01-Walk1_annotation_new.txt')
 
 
 
